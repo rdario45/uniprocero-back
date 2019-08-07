@@ -1,9 +1,13 @@
-2019-08-07 03:16:57,779 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-9 - Database [default] initialized at jdbc:postgresql://localhost:5432/test
-2019-08-07 03:16:57,790 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-9 - Creating Pool for datasource 'default'
-2019-08-07 03:16:58,440 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-9 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2019-08-07 10:14:31,390 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] initialized at jdbc:postgresql://localhost:5432/test
+2019-08-07 10:14:31,398 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2019-08-07 10:14:31,932 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2019-08-07 03:16:58,512 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-9 - Application started (Dev) (no global state)
+2019-08-07 10:14:31,982 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev) (no global state)
+2019-08-07 10:14:32,553 [DEBUG] from application in application-akka.actor.default-dispatcher-6 - - length >2
+2019-08-07 10:14:32,555 [DEBUG] from application in application-akka.actor.default-dispatcher-5 - - length >2
+2019-08-07 10:14:32,556 [DEBUG] from application in application-akka.actor.default-dispatcher-3 - - length >2
+2019-08-07 10:14:32,556 [DEBUG] from application in application-akka.actor.default-dispatcher-4 - - length >2

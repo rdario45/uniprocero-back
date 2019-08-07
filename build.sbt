@@ -14,3 +14,5 @@ libraryDependencies += evolutions
 libraryDependencies += "com.github.javafaker" % "javafaker" % "0.2"
 libraryDependencies += "io.vavr" % "vavr" % "0.10.0"
 libraryDependencies += "org.postgresql" % "postgresql" % "42.2.6"
+libraryDependencies += "org.jdbi" % "jdbi" % "2.78"
+libraryDependencies += "io.vavr" % "vavr-jackson" % "0.9.0"
