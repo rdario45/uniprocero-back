@@ -1,17 +1,15 @@
-package domain;
+package controllers.dto;
 
-import org.joda.time.DateTime;
-
-public class Event {
+public class EventDTO {
 
     private String name;
-    private Type type;
+    private String type;
     private String place;
     private String address;
-    private DateTime startDate;
-    private DateTime finishDate;
+    private String startDate;
+    private String finishDate;
 
-    public Event(String name, Type type, String place, String address, DateTime startDate, DateTime finishDate) {
+    public EventDTO(String name, String type, String place, String address, String startDate, String finishDate) {
         this.name = name;
         this.type = type;
         this.place = place;
@@ -28,11 +26,11 @@ public class Event {
         this.name = name;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -52,19 +50,19 @@ public class Event {
         this.address = address;
     }
 
-    public DateTime getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(DateTime startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public DateTime getFinishDate() {
+    public String getFinishDate() {
         return finishDate;
     }
 
-    public void setFinishDate(DateTime finishDate) {
+    public void setFinishDate(String finishDate) {
         this.finishDate = finishDate;
     }
 }

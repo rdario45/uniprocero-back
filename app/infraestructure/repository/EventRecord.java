@@ -1,17 +1,17 @@
-package domain;
+package infraestructure.repository;
 
-import org.joda.time.DateTime;
+import java.sql.Timestamp;
 
-public class Event {
+public class EventRecord {
 
     private String name;
-    private Type type;
+    private String type;
     private String place;
     private String address;
-    private DateTime startDate;
-    private DateTime finishDate;
+    private Timestamp startDate;
+    private Timestamp finishDate;
 
-    public Event(String name, Type type, String place, String address, DateTime startDate, DateTime finishDate) {
+    public EventRecord(String name, String type, String place, String address, Timestamp startDate, Timestamp finishDate) {
         this.name = name;
         this.type = type;
         this.place = place;
@@ -28,11 +28,11 @@ public class Event {
         this.name = name;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -52,19 +52,19 @@ public class Event {
         this.address = address;
     }
 
-    public DateTime getStartDate() {
+    public Timestamp getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(DateTime startDate) {
+    public void setStartDate(Timestamp startDate) {
         this.startDate = startDate;
     }
 
-    public DateTime getFinishDate() {
+    public Timestamp getFinishDate() {
         return finishDate;
     }
 
-    public void setFinishDate(DateTime finishDate) {
+    public void setFinishDate(Timestamp finishDate) {
         this.finishDate = finishDate;
     }
 }
