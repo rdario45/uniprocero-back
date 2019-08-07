@@ -1,9 +1,62 @@
-2019-08-07 10:53:16,058 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-2 - Database [default] initialized at jdbc:postgresql://localhost:5432/test
-2019-08-07 10:53:16,065 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
-2019-08-07 10:53:16,537 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-2 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2019-08-07 17:17:29,239 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-2 - Database [default] initialized at jdbc:postgresql://localhost:5432/test
+2019-08-07 17:17:29,247 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2019-08-07 17:17:29,728 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-2 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2019-08-07 10:53:16,585 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-2 - Application started (Dev) (no global state)
+2019-08-07 17:17:29,779 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-2 - Application started (Dev) (no global state)
+2019-08-07 17:20:18,305 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2019-08-07 17:20:18,504 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-11 - Database [default] initialized at jdbc:postgresql://localhost:5432/test
+2019-08-07 17:20:18,505 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-11 - Creating Pool for datasource 'default'
+2019-08-07 17:20:18,602 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-11 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2019-08-07 17:20:18,613 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-11 - Application started (Dev) (no global state)
+2019-08-07 17:20:33,212 [ERROR] from application in ForkJoinPool.commonPool-worker-5 - Error saving event!
+org.skife.jdbi.v2.exceptions.UnableToExecuteStatementException: org.postgresql.util.PSQLException: ERROR: value too long for type character varying(50) [statement:"INSERT INTO events (name, type, place, address, start_date, finish_date) VALUES(:r.name, :r.type, :r.place, :r.address, :r.startDate, :r.finishDate) RETURNING *", located:"INSERT INTO events (name, type, place, address, start_date, finish_date) VALUES(:r.name, :r.type, :r.place, :r.address, :r.startDate, :r.finishDate) RETURNING *", rewritten:"INSERT INTO events (name, type, place, address, start_date, finish_date) VALUES(?, ?, ?, ?, ?, ?) RETURNING *", arguments:{ positional:{}, named:{r.type:'Seminario',r.finishDate:2019-09-07 19:00:00.0,r.id:0,r.name:'Desarrollo de soluciones cloud-----------------------------------------------------------------------------------------------',r.class:class infraestructure.repository.EventRecord,r.place:'uniandes',r.startDate:2019-09-07 15:00:00.0,r.address:'calle 1 # 1 - 1'}, finder:[]}]
+	at org.skife.jdbi.v2.SQLStatement.internalExecute(SQLStatement.java:1338)
+	at org.skife.jdbi.v2.Query.fold(Query.java:173)
+	at org.skife.jdbi.v2.Query.first(Query.java:273)
+	at org.skife.jdbi.v2.Query.first(Query.java:264)
+	at org.skife.jdbi.v2.sqlobject.ResultReturnThing$SingleValueResultReturnThing.result(ResultReturnThing.java:110)
+	at org.skife.jdbi.v2.sqlobject.ResultReturnThing.map(ResultReturnThing.java:46)
+	at org.skife.jdbi.v2.sqlobject.QueryHandler.invoke(QueryHandler.java:41)
+	at org.skife.jdbi.v2.sqlobject.SqlObject.invoke(SqlObject.java:224)
+	at org.skife.jdbi.v2.sqlobject.SqlObject$3.intercept(SqlObject.java:133)
+	at org.skife.jdbi.v2.sqlobject.CloseInternalDoNotUseThisClass$$EnhancerByCGLIB$$ea7ba098.insert(<generated>)
+	at infraestructure.repository.EventRepository.lambda$save$805e51$1(EventRepository.java:34)
+	at io.vavr.control.Try.of(Try.java:75)
+	at io.vavr.concurrent.Future.lambda$of$11(Future.java:497)
+	at io.vavr.concurrent.FutureImpl.lambda$null$3(FutureImpl.java:157)
+	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1402)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+Caused by: org.postgresql.util.PSQLException: ERROR: value too long for type character varying(50)
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2468)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2211)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:309)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:446)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:370)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:149)
+	at org.postgresql.jdbc.PgPreparedStatement.execute(PgPreparedStatement.java:138)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.skife.jdbi.v2.SQLStatement.internalExecute(SQLStatement.java:1327)
+	... 18 common frames omitted
+2019-08-07 17:21:32,679 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+2019-08-07 17:21:32,821 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-14 - Database [default] initialized at jdbc:postgresql://localhost:5432/test
+2019-08-07 17:21:32,821 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-14 - Creating Pool for datasource 'default'
+2019-08-07 17:21:32,916 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-14 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2019-08-07 17:21:32,928 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-14 - Application started (Dev) (no global state)

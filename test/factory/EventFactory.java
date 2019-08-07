@@ -8,6 +8,7 @@ import org.joda.time.DateTime;
 public class EventFactory {
 
     Faker faker ;
+    private int id;
     private String name;
     private Type type;
     private String place;
@@ -18,22 +19,24 @@ public class EventFactory {
     public EventFactory() {
         Type[] typeValues = Type.values();
         faker = new Faker();
-        this.name = faker.name();
+        this.id = faker.number().randomDigit();
+        this.name = faker.gameOfThrones().house();
         this.type = Type.values()[typeValues.length-1] ;
-        this.place = faker.country();
-        this.address = faker.streetAddress(false);
+        this.place = faker.gameOfThrones().city();
+        this.address = faker.address().fullAddress();
         this.startDate = DateTime.now();
         this.finishDate = this.startDate.plusHours(1);
     }
 
     public Event get(){
         return new Event(
-          id, this.name,
-                this.type,
-                this.place,
-                this.address,
-                this.startDate,
-                this.finishDate
+          this.id,
+          this.name,
+          this.type,
+          this.place,
+          this.address,
+          this.startDate,
+          this.finishDate
         );
     }
 

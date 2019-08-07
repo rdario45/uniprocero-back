@@ -15,12 +15,11 @@ public enum Type {
         this.name = name;
     }
 
-    public static Type indexOf(String name) {
-        return List.of(Type.values()).find(t -> t.getName().equals(name)).getOrElse(Type.UNKNOWN);
-    }
-
     public String getName() {
         return name;
     }
 
+    public static Type indexOf(String name) {
+        return List.of(Type.values()).find(t -> t.getName().equals(name)).getOrElse(Type.UNKNOWN);
+    }
 }

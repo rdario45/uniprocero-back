@@ -3,5 +3,6 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET        /events            controllers.EventController.index
-GET        /events/:id        controllers.EventController.find(id: Integer)
+GET         /events            controllers.EventController.index
+GET         /events/:id        controllers.EventController.find(id: Integer)
+POST        /events            controllers.EventController.save

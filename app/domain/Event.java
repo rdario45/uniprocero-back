@@ -12,6 +12,9 @@ public class Event {
     private DateTime startDate;
     private DateTime finishDate;
 
+    public Event() {
+    }
+
     public Event(int id, String name, Type type, String place, String address, DateTime startDate, DateTime finishDate) {
         this.id = id;
         this.name = name;

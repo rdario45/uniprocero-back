@@ -10,6 +10,10 @@ public class EventDTO {
     private String startDate;
     private String finishDate;
 
+    public EventDTO() {
+        // to json serialize
+    }
+
     public EventDTO(int id, String name, String type, String place, String address, String startDate, String finishDate) {
         this.id = id;
         this.name = name;
