@@ -19,7 +19,7 @@ public class EventFactory {
         Type[] typeValues = Type.values();
         faker = new Faker();
         this.name = faker.name();
-        this.type = Type.getIndefOf(typeValues.length-1) ;
+        this.type = Type.values()[typeValues.length-1] ;
         this.place = faker.country();
         this.address = faker.streetAddress(false);
         this.startDate = DateTime.now();
@@ -28,7 +28,7 @@ public class EventFactory {
 
     public Event get(){
         return new Event(
-                this.name,
+          id, this.name,
                 this.type,
                 this.place,
                 this.address,

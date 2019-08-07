@@ -2,6 +2,7 @@ package controllers.dto;
 
 public class EventDTO {
 
+    private int id;
     private String name;
     private String type;
     private String place;
@@ -9,13 +10,22 @@ public class EventDTO {
     private String startDate;
     private String finishDate;
 
-    public EventDTO(String name, String type, String place, String address, String startDate, String finishDate) {
+    public EventDTO(int id, String name, String type, String place, String address, String startDate, String finishDate) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.place = place;
         this.address = address;
         this.startDate = startDate;
         this.finishDate = finishDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

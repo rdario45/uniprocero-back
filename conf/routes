@@ -3,7 +3,5 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.EventController.index
-
-# Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET        /events            controllers.EventController.index
+GET        /events/:id        controllers.EventController.find(id: Integer)

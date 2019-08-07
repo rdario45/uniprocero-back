@@ -10,12 +10,13 @@ public class EventMapperDAO implements ResultSetMapper<EventRecord> {
     @Override
     public EventRecord map(int index, ResultSet r, StatementContext ctx) throws SQLException {
         return new EventRecord(
-                r.getString("name"),
-                r.getString("type"),
-                r.getString("place"),
-                r.getString("address"),
-                r.getTimestamp("start_date"),
-                r.getTimestamp("finish_date")
+          r.getInt("id"),
+          r.getString("name"),
+          r.getString("type"),
+          r.getString("place"),
+          r.getString("address"),
+          r.getTimestamp("start_date"),
+          r.getTimestamp("finish_date")
         );
     }
 }

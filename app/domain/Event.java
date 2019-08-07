@@ -4,6 +4,7 @@ import org.joda.time.DateTime;
 
 public class Event {
 
+    private int id;
     private String name;
     private Type type;
     private String place;
@@ -11,13 +12,22 @@ public class Event {
     private DateTime startDate;
     private DateTime finishDate;
 
-    public Event(String name, Type type, String place, String address, DateTime startDate, DateTime finishDate) {
+    public Event(int id, String name, Type type, String place, String address, DateTime startDate, DateTime finishDate) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.place = place;
         this.address = address;
         this.startDate = startDate;
         this.finishDate = finishDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class EventRecord {
 
+    private int id;
     private String name;
     private String type;
     private String place;
@@ -11,13 +12,22 @@ public class EventRecord {
     private Timestamp startDate;
     private Timestamp finishDate;
 
-    public EventRecord(String name, String type, String place, String address, Timestamp startDate, Timestamp finishDate) {
+    public EventRecord(int id, String name, String type, String place, String address, Timestamp startDate, Timestamp finishDate) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.place = place;
         this.address = address;
         this.startDate = startDate;
         this.finishDate = finishDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
