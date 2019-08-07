@@ -1,0 +1,8 @@
+dist/*
+target/
+.history
+.cache
+.lib/
+.g8/
+.idea/
+project/
