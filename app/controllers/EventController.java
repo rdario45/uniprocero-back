@@ -15,9 +15,10 @@ import play.libs.Json;
 import play.mvc.Result;
 import play.mvc.Results;
 
+import java.util.function.Function;
+
 import static play.mvc.Http.Context.Implicit.request;
-import static play.mvc.Results.internalServerError;
-import static play.mvc.Results.ok;
+import static play.mvc.Results.*;
 
 public class EventController {
 
@@ -51,6 +52,23 @@ public class EventController {
       .flatMap( future -> future.onFailure(throwable -> Logger.error("Error saving event!", throwable))
         .toEither(internalServerError(getJsonErrorMessage("Error saving event!")))
       ).map(EventMapper::eventToDTO)
+      .map(Json::toJson)
+      .fold(result -> result, Results::ok);
+  }
+
+  public Result update(){
+    JsonNode json = request().body().asJson();
+
+    return getEventDTO(json)
+      .flatMap(EventValidator::validate)
+      .mapLeft(this::getValidationErrorMessage)
+      .mapLeft(Results::badRequest).map(event -> repository.update(event))
+      .flatMap(future ->
+        future.map(option -> option.toEither(notFound(getJsonErrorMessage("Not Found"))))
+          .onFailure(throwable -> Logger.error("Error updating event!", throwable))
+          .toEither(internalServerError(getJsonErrorMessage("Error updating event!")))
+          .flatMap(Function.identity()))
+      .map(EventMapper::eventToDTO)
       .map(Json::toJson)
       .fold(result -> result, Results::ok);
   }

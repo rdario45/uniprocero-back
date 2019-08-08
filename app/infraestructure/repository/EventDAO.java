@@ -32,4 +32,14 @@ public interface EventDAO {
       ":r.finishDate) RETURNING *")
     EventRecord insert(@BindBean("r") EventRecord record);
 
+    @SqlQuery("UPDATE events SET " +
+      "name = :r.name, " +
+      "type = :r.type, " +
+      "place = :r.place, " +
+      "address = :r.address, " +
+      "start_date = :r.startDate , " +
+      "finish_date= :r.finishDate " +
+      "WHERE id = :r.id RETURNING *")
+    EventRecord update(@BindBean("r") EventRecord record);
+
 }

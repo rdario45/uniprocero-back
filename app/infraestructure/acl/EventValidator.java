@@ -14,6 +14,7 @@ public class EventValidator {
 
   public static Either<List<String>, Event> validate(EventDTO dto) {
     return Validation.combine(
+      Validation.valid(dto.getId()),
       validateName(dto.getName()),
       validateType(dto.getType()),
       validatePlace(dto.getPlace()),

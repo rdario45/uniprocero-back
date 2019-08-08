@@ -7,7 +7,9 @@ import io.vavr.collection.List;
 import io.vavr.concurrent.Future;
 import io.vavr.control.Option;
 import org.skife.jdbi.v2.DBI;
+import play.Logger;
 import play.api.db.Database;
+import play.libs.Json;
 
 public class EventRepository {
 
@@ -31,5 +33,15 @@ public class EventRepository {
   public Future<Event> save(Event event) {
     EventRecord record = EventMapper.eventToRecord(event);
     return Future.of(() -> db.onDemand(EventDAO.class).insert(record)).map(EventMapper::recordToEvent);
+  }
+
+  public Future<Option<Event>> update(Event event){
+    EventRecord record = EventMapper.eventToRecord(event);
+    return Future.of(() -> {
+      EventRecord update = db.onDemand(EventDAO.class).update(record);
+      Logger.debug(Json.toJson(event).toString());
+      Option<Event> map = Option.of(update).map(EventMapper::recordToEvent);
+      return map;
+    });
   }
 }
