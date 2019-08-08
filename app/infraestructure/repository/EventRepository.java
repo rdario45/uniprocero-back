@@ -37,11 +37,6 @@ public class EventRepository {
 
   public Future<Option<Event>> update(Event event){
     EventRecord record = EventMapper.eventToRecord(event);
-    return Future.of(() -> {
-      EventRecord update = db.onDemand(EventDAO.class).update(record);
-      Logger.debug(Json.toJson(event).toString());
-      Option<Event> map = Option.of(update).map(EventMapper::recordToEvent);
-      return map;
-    });
+    return Future.of(() -> Option.of(db.onDemand(EventDAO.class).update(record)).map(EventMapper::recordToEvent));
   }
 }

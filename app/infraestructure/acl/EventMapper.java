@@ -1,6 +1,5 @@
 package infraestructure.acl;
 
-
 import controllers.dto.EventDTO;
 import domain.Event;
 import domain.Type;

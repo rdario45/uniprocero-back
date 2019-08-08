@@ -1,12 +1,10 @@
 package domain;
 
-import static org.junit.Assert.*;
-
 import factory.EventFactory;
-import infraestructure.acl.EventMapper;
 import org.junit.Before;
 import org.junit.Test;
-import play.libs.Json;
+
+import static org.junit.Assert.assertTrue;
 
 public class EventTest {
 
@@ -19,7 +17,6 @@ public class EventTest {
 
     @Test
     public void testDates() {
-        System.out.println(Json.toJson(EventMapper.eventToDTO(event)));
         assertTrue(event.getStartDate().isBefore(event.getFinishDate()));
     }
 }
