@@ -8,7 +8,7 @@ public enum Type {
     SEMINARIO("Seminario"),
     CONGRESO("Congreso"),
     CURSO("Curso"),
-    OTRO("Otro.");
+    OTRO("Otro");
 
     private String name;
 
