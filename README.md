@@ -4,8 +4,6 @@
 * Database
 * Webserver
 
-
-
 ## Database
 Postgress
 
@@ -14,8 +12,7 @@ docker run --name postgress-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=123 -
 ## WebServer and ProxyReverse
 Nginx
 
-PROJECT_FOLDER="/home/ruben/workspace/uniandes/proyecto0/backend" && \
-docker run --name nginx-ws -v ${PROJECT_FOLDER}/nginx.conf:/etc/nginx/nginx.conf:ro -d --network host nginx
+
 
 docker exec -it nginx-ws bash
 
