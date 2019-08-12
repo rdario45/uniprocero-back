@@ -39,4 +39,9 @@ public class EventRepository {
     EventRecord record = EventMapper.eventToRecord(event);
     return Future.of(() -> Option.of(db.onDemand(EventDAO.class).update(record)).map(EventMapper::recordToEvent));
   }
+
+  public Future<Option<Event>> delete(int id){
+    return Future.of(() -> Option.of(db.onDemand(EventDAO.class).delete(id)).map(EventMapper::recordToEvent));
+  }
+
 }

@@ -42,4 +42,7 @@ public interface EventDAO {
       "WHERE id = :r.id RETURNING *")
     EventRecord update(@BindBean("r") EventRecord record);
 
+    @SqlQuery("DELETE FROM events WHERE id = :id  RETURNING *")
+    EventRecord delete(@Bind("id") int id);
+
 }

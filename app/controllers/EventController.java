@@ -43,8 +43,8 @@ public class EventController {
 
   public Result save() {
     JsonNode json = request().body().asJson();
-
-    return getEventDTO(json)
+    Logger.info("POST /events body:" + json.toString());
+    return getEventDTO(json.get("body"))
       .flatMap(EventValidator::validate)
       .mapLeft(this::getValidationErrorMessage)
       .mapLeft(Results::badRequest)
@@ -69,6 +69,16 @@ public class EventController {
           .toEither(internalServerError(getJsonErrorMessage("Error updating event!")))
           .flatMap(Function.identity()))
       .map(EventMapper::eventToDTO)
+      .map(Json::toJson)
+      .fold(result -> result, Results::ok);
+  }
+
+  public Result delete(int id) {
+    return repository.delete(id)
+      .map(option -> option.toEither(notFound(getJsonErrorMessage("Not Found"))))
+      .onFailure(throwable -> Logger.error("Error removing event!", throwable))
+      .toEither(internalServerError(getJsonErrorMessage("Error removing event!")))
+      .flatMap(Function.identity()).map(EventMapper::eventToDTO)
       .map(Json::toJson)
       .fold(result -> result, Results::ok);
   }
