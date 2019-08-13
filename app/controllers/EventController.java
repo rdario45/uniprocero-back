@@ -58,8 +58,8 @@ public class EventController {
 
   public Result update(){
     JsonNode json = request().body().asJson();
-
-    return getEventDTO(json)
+    Logger.info("PATCH /events body:" + json.toString());
+    return getEventDTO(json.get("body"))
       .flatMap(EventValidator::validate)
       .mapLeft(this::getValidationErrorMessage)
       .mapLeft(Results::badRequest).map(event -> repository.update(event))
