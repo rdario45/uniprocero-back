@@ -1,3 +1,0 @@
-# Event Backend
-====
-docker build .
