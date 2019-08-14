@@ -1,2 +1,3 @@
 # Event Backend
 ====
+docker build .

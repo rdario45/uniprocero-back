@@ -1,4 +1,4 @@
-FROM openjdk:8
-WORKDIR /myapp
-COPY /backend-1.0 /myapp
-RUN ./bin/backend
+FROM phusion/baseimage 
+WORKDIR /opt/eventos
+COPY ./eventos-1.0 /opt/eventos
+RUN ls

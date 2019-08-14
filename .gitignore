@@ -1,7 +1,5 @@
 .g8/
 .idea/
-.dist/
-eventos-*/
 logs/application.log
 project/target/
 project/project/
