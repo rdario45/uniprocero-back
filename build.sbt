@@ -1,4 +1,4 @@
-name := """backend"""
+name := "eventos"
 organization := "co.com.uniandes"
 version := "1.0"
 
