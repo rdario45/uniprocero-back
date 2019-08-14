@@ -1,6 +1,7 @@
 .g8/
 .idea/
 .dist/
+backend-*/
 logs/application.log
 project/target/
 project/project/
