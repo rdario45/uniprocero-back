@@ -18,3 +18,6 @@ libraryDependencies += "org.postgresql" % "postgresql" % "42.2.6"
 libraryDependencies += "org.jdbi" % "jdbi" % "2.78"
 libraryDependencies += "io.vavr" % "vavr-jackson" % "0.9.0"
 libraryDependencies += "org.apache.commons" % "commons-lang3" % "3.0"
+
+libraryDependencies += "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided"
+libraryDependencies += "com.auth0" % "mvc-auth-commons" % "1.0.9"

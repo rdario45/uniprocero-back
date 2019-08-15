@@ -14,6 +14,7 @@ import play.Logger;
 import play.libs.Json;
 import play.mvc.Result;
 import play.mvc.Results;
+import play.api.cache.*:
 
 import java.util.function.Function;
 
@@ -25,10 +26,11 @@ public class EventController {
   private EventRepository repository;
 
   @Inject
-  public EventController(EventRepository repository) {
+  public EventController(EventRepository repository, CacheApi cache ) {
     this.repository = repository;
+    this.cache = cache;
   }
-
+  
   public Result index() {
     return ok(Json.toJson(repository.listAll().map(EventMapper::eventToDTO)));
   }
